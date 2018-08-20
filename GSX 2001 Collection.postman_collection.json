@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "81331c6a-235c-4519-ba06-133a14d8fef8",
+		"name": "GSX 2001 Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "1645f502-6832-4200-8812-ac4942adaca2",
+			"name": "https://api.icndb.com/jokes/random",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://api.icndb.com/jokes/random",
+					"protocol": "https",
+					"host": [
+						"api",
+						"icndb",
+						"com"
+					],
+					"path": [
+						"jokes",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "90b7499b-819c-4dfb-b5d2-4e76ede9d919",
+			"name": "https://sandboxdnac.cisco.com/api/system/v1/auth/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "devnetuser",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "Cisco123!",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://sandboxdnac.cisco.com/api/system/v1/auth/token",
+					"protocol": "https",
+					"host": [
+						"sandboxdnac",
+						"cisco",
+						"com"
+					],
+					"path": [
+						"api",
+						"system",
+						"v1",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "57c55cd1-f2a5-42b1-8fa1-b9571f9782e7",
+			"name": "https://{{server}}/api/system/v1/auth/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://{{server}}/api/system/v1/auth/token",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"system",
+						"v1",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "da1db8d1-c633-4fb2-b2aa-41e33a92f07a",
+			"name": "https://{{server}}/api/system/v1/auth/token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8d9d51e-525b-49c2-b833-58ffb62348ff",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.environment.set(\"token\",jsonData.Token)"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://{{server}}/api/system/v1/auth/token",
+					"protocol": "https",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"system",
+						"v1",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "1b8638e5-8f71-44b5-afd6-2abb301f9167",
+			"name": "https://sandboxdnac.cisco.com/api/v1/network-device",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e9878ff3-27c6-4bd4-9896-e69fcf0bffab",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "{{token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://sandboxdnac.cisco.com/api/v1/network-device",
+					"protocol": "https",
+					"host": [
+						"sandboxdnac",
+						"cisco",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"network-device"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
